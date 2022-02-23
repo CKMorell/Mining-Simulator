@@ -4,6 +4,7 @@ from pickaxe import Pickaxe
 class Player:
     class Inventory:
         def __init__(self):
+            self.money = 0
             self.stone = 0
             self.coal = 0
             self.iron = 0
@@ -13,7 +14,9 @@ class Player:
             self.lapis = 0
         
         def DisplayInv(self):
+            print("INVENTORY\n----------")
             self.inventory = {
+                'Money': f"${self.money}\n",
                 'Stone': self.stone,
                 'Coal': self.coal,
                 'Iron': self.iron,

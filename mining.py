@@ -7,19 +7,14 @@ from player import Player
 Inventory = Player.Inventory()
 
 # Pickaxe init
-WoodenPick = Pickaxe.WoodenPick(False, False, False, False)
-StonePick = Pickaxe.StonePick(False, False, False, False)
-IronPick = Pickaxe.IronPick(False, False, False, False)
-GoldPick = Pickaxe.GoldenPick(False, False, False, False)
-DiamondPick = Pickaxe.DiamondPick(False, False, False, False)
-NetheritePick = Pickaxe.NetheritePick(False, False, False, False)
+WoodenPick = Pickaxe.WoodenPick(0, 0, 0, 0)
+StonePick = Pickaxe.StonePick(0, 0, 0, 0)
+IronPick = Pickaxe.IronPick(0, 0, 0, 0)
+GoldPick = Pickaxe.GoldenPick(0, 0, 0, 0)
+DiamondPick = Pickaxe.DiamondPick(0, 0, 0, 0)
+NetheritePick = Pickaxe.NetheritePick(0, 0, 0, 0)
 
 running = True
-
-# def commandhandler(command):
-#     if (command == "test"):
-#         Inventory.coal += 10
-#         Inventory.DisplayInv()
 
 def main():
     Inventory.DisplayInv()
