@@ -56,19 +56,20 @@ class Player:
                 inv.close()
                 print("Inventory saved!")
 
-        def Mine(self):
-            self.coal += 10
-            self.DisplayInv()
+        # def Mine(self):
+        #     self.coal += 10
+        #     self.DisplayInv()
 
         def CommandHandle(self, command):
             self.commandlist = [
-                "help",
-                "exit",
-                "clear",
-                "mine",
-                "inv",
-                "save",
-                "picktype"
+                "help - Display list of commands.",
+                "exit - Exit the game.",
+                "clear - Clear the terminal.",
+                "mine - Mine blocks.",
+                "inv - Display the inventory.",
+                "save - Save your progress.",
+                "pickstat - Display pickaxe stats.",
+                "craft - Crafts a new pickaxe of user's choice."
             ]
 
             match (command):
@@ -84,12 +85,15 @@ class Player:
                     else:
                         os.system('clear')
                 case "mine":
-                    self.Mine()
+                    pass
+                    # self.Mine()
                 case "inv":
                     self.DisplayInv()
                 case "save":
                     self.Save()
-                case "picktype":
+                case "pickstat":
+                    pass
+                case "craft":
                     pass
                 case _:
                     print(f"'{command}' is an unknown command")
@@ -103,6 +107,14 @@ class Player:
             self.fortune = fortune
             self.mending = mending
             self.unbreaking = unbreaking
+
+            self.materials = [
+                "[1] Wooden Pickaxe",
+                "[2] Stone Pickaxe",
+                "[3] Iron Pickaxe",
+                "[4] Gold Pickaxe",
+                "[5] Diamond Pickaxe",
+            ]
 
             try:
                 file = open("picktype.json", "r")
@@ -125,6 +137,7 @@ class Player:
                     "Mending": self.mending,
                     "Unbreaking": self.unbreaking
                 }
+                print("Error loading pickaxe...")
 
         def SavePickaxe(self):
             with open("picktype.json", "w") as pick:
